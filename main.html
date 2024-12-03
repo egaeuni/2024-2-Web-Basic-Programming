@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관심사</title>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        .scale-up {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px black;
+        }
+    </style>
+    
+    <script>
+        function init() {
+            let images = document.getElementsByClassName("poster");
+            for (let img of images) {
+                img.addEventListener('mouseover', zoomIn);
+                img.addEventListener('mouseout', zoomOut);
+            }
+            let table = document.getElementById("taste");
+            table.addEventListener('click', change);
+        }
+
+        function change() {
+            const fragment = document.createDocumentFragment();
+            
+            const img1 = document.createElement('img');
+            img1.src = "media/main/like.png";
+            fragment.appendChild(img1);
+            
+            const p1 = document.createElement('p');
+            p1.textContent = "키워드: SF | 판타지 | 사랑 | 성장 | 뮤지컬";
+            fragment.appendChild(p1);
+            
+            const img2 = document.createElement('img');
+            img2.src = "media/main/dislike.png";
+            fragment.appendChild(img2);
+            
+            const p2 = document.createElement('p');
+            p2.textContent = "키워드: 범죄 | 액션 | 느와르 | 멜로 | 로맨스";
+            fragment.appendChild(p2);
+            
+            this.innerHTML = '';
+            this.appendChild(fragment);
+        }
+
+        function zoomIn() {
+            this.classList.add("scale-up");
+        }
+
+        function zoomOut() {
+            this.classList.remove("scale-up");
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</head>
+
+<body>
+    <header>MOVIE</header>
+    <nav>
+        <a href="#perfer">취향</a>
+        <a href="#like">좋아하는 영화</a>
+        <a href="#wish">보고 싶은 영화</a>
+    </nav>
+    <img id="main" src="media/main/movie.jpg"><br>
+    <section class="taste">
+        <div class="box" id="perfer">취향</div>
+        <table id="taste">
+            <tr>
+                <th>like</th>
+                <td>SF</td>
+                <td>판타지</td>
+                <td title="어떤 사물이나 대상을 아끼고 소중히 여기거나 즐기는 마음. 또는 그런 일.">사랑</td>
+                <td>성장</td>
+                <td>뮤지컬</td>
+            </tr>
+            <tr>
+                <th>dislike</th>
+                <td>범죄</td>
+                <td>액션</td>
+                <td>느와르</td>
+                <td>멜로</td>
+                <td title="남녀 사이의 사랑 이야기. 또는 연애 사건.">로맨스</td>
+            </tr>
+        </table>
+        <br><br>
+    </section>
+    <section class="favorite-movies">
+        <div class="box" id="like">좋아하는 영화</div>
+        <ul>
+            <a href="robotdreams.html"><img class="poster" src="media/main/like1.jpg" alt="로봇드림"></a>
+            <a href="eea.html"><img class="poster" src="media/main/like3.jpg" alt="에에올"></a>
+            <a href="afteryang.html"><img class="poster" src="media/main/like2.jpg" alt="애프터양"></a>
+            <a href="trumanshow.html"><img class="poster" src="media/main/five2.jpg" alt="트루먼쇼"></a><br>
+            <a href="litbc.html"><img class="poster" src="media/main/five1.jpg" alt="대도시의 사랑법"></a>
+            <a href="ai.html"><img class="poster" src="media/main/like4.jpg" alt="AI"></a>
+            <a href="chicago.html"><img class="poster" src="media/main/like5.png" alt="시카고"></a>
+            <a href="aladdin.html"><img class="poster" src="media/main/five3.jpg" alt="알라딘"></a>
+        </ul><br>
+    </section>
+    <section class="wishlist">
+        <br><br>
+        <div class="box" id="wish">보고 싶은 영화</div>
+        <ul>
+            <a href="wildrobot.html"><img class="poster" src="media/main/wish1.jpg" alt="와일드 로봇"></a>
+            <a href="monster.html"><img class="poster" src="media/main/wish2.jpg" alt="괴물"></a>
+        </ul>
+    </section>
+    <footer>20241243 이가은</footer>
+</body>
+
+</html>

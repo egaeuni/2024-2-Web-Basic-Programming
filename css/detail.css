@@ -1,0 +1,58 @@
+html,
+body {
+    background-color: black;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    color: whitesmoke;
+
+}
+
+a {
+    color: rgb(83, 83, 83);
+}
+
+.arrow img {
+    margin-top: 15px;
+}
+
+a>img {
+    width: 25px;
+    height: auto;
+    padding-left: 25px;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+p {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+.trailer img {
+    width: 300px;
+    height: 190px;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+}
+
+pre {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+span {
+    color: rgb(169, 169, 169);
+}
+
+iframe {
+    text-align: center;
+}
