@@ -56,3 +56,18 @@ span {
 iframe {
     text-align: center;
 }
+
+.watched {
+    background-color: whitesmoke; /* 버튼 배경색 (녹색) */
+    color: black;              /* 버튼 텍스트 색상 */
+    border: none;
+    padding: 4px 5px;        /* 버튼 내 여백 (상하, 좌우) */
+    font-size: 16px;           /* 글꼴 크기 */
+    font-family: 'Noto Sans KR', sans-serif; /* 글꼴 설정 */
+    border-radius: 8px;        /* 둥근 모서리 */
+    cursor: pointer;          /* 마우스 커서가 버튼 위에 있을 때 포인터로 변경 */
+    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
