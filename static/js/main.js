@@ -19,10 +19,11 @@ function zoomOut() {
 document.addEventListener('DOMContentLoaded', init);
 
 window.onload = function () {
-    if (localStorage.getItem("watched") === "true") {
     var movieElements = document.getElementsByClassName("watched");
     for (var i = 0; i < movieElements.length; i++) {
-        movieElements[i].style.display = "none"; // 영화 항목 숨기기
-    }
+        var movieId = movieElements[i].getAttribute("data-movie");
+        if (localStorage.getItem(movieId + "_watched") === "true") {
+            movieElements[i].style.display = "none"; // 해당 영화 항목만 숨기기
+        }
     }
 };
