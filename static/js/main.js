@@ -8,29 +8,6 @@ function init() {
         table.addEventListener('click', change);
     }
 
-function change() {
-    const fragment = document.createDocumentFragment();
-
-    const img1 = document.createElement('img');
-        img1.src = "media/main/like.png";
-        fragment.appendChild(img1);
-        
-        const p1 = document.createElement('p');
-        p1.textContent = "키워드: SF | 판타지 | 사랑 | 성장 | 뮤지컬";
-        fragment.appendChild(p1);
-            
-        const img2 = document.createElement('img');
-        img2.src = "media/main/dislike.png";
-        fragment.appendChild(img2);
-            
-        const p2 = document.createElement('p');
-        p2.textContent = "키워드: 범죄 | 액션 | 느와르 | 멜로 | 로맨스";
-        fragment.appendChild(p2);
-            
-        this.innerHTML = '';
-        this.appendChild(fragment);
-    }
-
 function zoomIn() {
     this.classList.add("scale-up");
 }
