@@ -10,6 +10,10 @@ function init() {
     // "taste" Id를 가진 테이블 요소 선택
     let table = document.getElementById("taste");
 
+    // 초기화 버튼 클릭 이벤트 등록
+    let clearButton = document.getElementById("clear-storage");
+    clearButton.addEventListener("click", clearLocalStorage);
+
     // 영화 이미지를 동적으로 생성하고, 클릭 시 영화 상세 페이지로 이동하는 기능 추가
     displayMovies();  // wishlistMovies 배열에 있는 영화들을 화면에 표시
 }
@@ -26,21 +30,21 @@ function zoomOut() {
 
 // 영화 객체 생성자 함수
 function WishlistMovie(id, title, detailUrl, imgUrl) {
-    this.id = id; // 고유 ID를 추가
+    this.id = id;
     this.title = title;
     this.detailUrl = detailUrl;
     this.imgUrl = imgUrl;
 }
 
 // 영화 데이터 배열
-const wishlistMovies = [
+let wishlistMovies = [
     new WishlistMovie("wildrobot", "와일드 로봇", "wildrobot.html", "media/main/wish1.jpg"),
     new WishlistMovie("monster", "괴물", "monster.html", "media/main/wish2.jpg"),
 ];
 
 // 영화 이미지를 동적으로 생성하고 클릭 이벤트를 추가하는 함수
 function displayMovies() {
-    const movieContainer = document.getElementById("movie-container"); // 영화 이미지들을 추가할 요소
+    let movieContainer = document.getElementById("movie-container"); // 영화 이미지들을 추가할 요소
 
     wishlistMovies.forEach(movie => {
         // 로컬 스토리지에서 해당 영화의 시청 여부 확인
@@ -48,10 +52,10 @@ function displayMovies() {
             return; // 시청 완료한 영화는 추가하지 않음
         }
 
-        const imgElement = document.createElement("img"); // 이미지 요소 생성
+        let imgElement = document.createElement("img"); // 이미지 요소 생성
         imgElement.src = movie.imgUrl;  // 이미지 소스 설정
         imgElement.alt = movie.title;   // 이미지 설명을 제목으로 설정
-        imgElement.classList.add("poster"); // "poster" 클래스를 추가하여 스타일 적용
+        imgElement.className = "poster"; // "poster" 클래스를 추가하여 스타일 적용
 
         // 클릭 시 해당 영화의 detailUrl로 이동하도록 이벤트 추가
         imgElement.onclick = function() {
@@ -90,9 +94,18 @@ window.onload = function () {
     // 선택한 요소의 정보를 문자열로 구성
     let text = "wish.id= " + wish.id + "\n";  // 요소의 ID
     text += "wish.innerHTML = " + wish.innerHTML + "\n";  // 요소의 HTML 내용
-    text += "높이 = " + wish.offsetHeight + "\n";  // 요소의 높이 (픽셀 단위)
-    text += "너비 = " + wish.offsetWidth + "\n";  // 요소의 너비 (픽셀 단위)
+    text += "높이 = " + wish.offsetHeight + "\n";  // 요소의 높이
+    text += "너비 = " + wish.offsetWidth + "\n";  // 요소의 너비 
 
     // 구성된 정보를 알림창으로 표시
     alert(text);
 };
+
+// 로컬 스토리지를 초기화하는 함수
+function clearLocalStorage() {
+    localStorage.clear(); // 로컬 스토리지 초기화
+    alert("로컬 스토리지가 초기화되었습니다!");
+
+    // 페이지를 새로고침하여 변경사항 반영
+    location.reload();
+}
